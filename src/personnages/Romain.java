@@ -13,11 +13,14 @@ public class Romain {
 		this.force = force;
 	}
 	
-	
+	private Boolean isInvariantVerified() {
+		return this.force>=0;
+	}
 	
 	public static void main(String[] args) {
 		System.out.println(Equipement.CASQUE);
 		Romain minus = new Romain("Minus",6);
+		assert minus.isInvariantVerified();
 		minus.sEquiper(Equipement.CASQUE);
 		minus.sEquiper(Equipement.CASQUE);
 		minus.sEquiper(Equipement.BOUCLIER);
@@ -61,6 +64,8 @@ public class Romain {
 	
 	
 	public void recevoirCoup(int forceCoup) {
+		assert forceCoup>=0;
+		int tempForce=force;
 		force = force - forceCoup;
 		if (force < 1) {
 			parler("J'abandonnne !");
@@ -68,6 +73,6 @@ public class Romain {
 		else {
 			parler("Aie !");
 		}
-		
+		assert force<tempForce;
 	}
 }
