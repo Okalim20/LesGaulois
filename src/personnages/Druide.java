@@ -10,13 +10,17 @@ public class Druide {
 		this.force = force;
 		this.chaudron = new Chaudron();
 	}
-	private void parler(String texte) {
-		System.out.println(prendreParole() + "\"" + texte + "\"");
-	}
 	
 	public String prendreParole() {
 		return "Le Druide " + nom + " : ";
 	}
+	
+	
+	public void parler(String texte) {
+		System.out.println(prendreParole() + "\"" + texte + "\"");
+	}
+	
+
 	
 	public void fabriquerPotion(int quantite, int forcePotion) {
 		chaudron.remplirChaudron(quantite, forcePotion);
